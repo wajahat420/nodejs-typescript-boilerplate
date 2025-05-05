@@ -1,4 +1,4 @@
-# Omnichannel Node.js Boilerplate
+# Node.js Typescript Boilerplate
 
 This is a Node.js boilerplate project using TypeScript and MySQL, designed for building scalable backend applications.
 
