@@ -1,16 +1,13 @@
+import { User, UserAttributes } from '@models/user.model';
 import { Op } from 'sequelize'; // Optional, in case you need advanced filters
-import { UserAttributes } from '../interfaces/user.interface';
-import { User } from '../models/user.model';
 import { BaseRepository } from './base.repository';
 
 class userRepository extends BaseRepository<
   User,
   UserAttributes
 > {
-  // private model: ModelStatic<User>;
   constructor() {
     super(User);
-    // this.model = User
   }
 
   /**

@@ -5,6 +5,13 @@
     "moduleResolution": "node",
     "outDir": "./dist",
     "rootDir": "./src",
+    "baseUrl": "./src",
+    "paths": {
+      "@models/*" : ["models/*"],
+      "@controllers/*" : ["controllers/*"],
+      "@common/*" : ["common/*"],
+      "@repositories/*" : ["repositories/*"],
+    },
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
