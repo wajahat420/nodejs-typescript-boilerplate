@@ -1,7 +1,5 @@
 'use strict';
 
-const { logMigration } = require('../helper/function.js');
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -21,6 +19,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      roleId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'roles', // name of the table
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT',
+      },
       deletedBy: {
         type: Sequelize.INTEGER.UNSIGNED,
         allowNull: true,
@@ -39,7 +47,6 @@ module.exports = {
       },
     });
 
-    // await logMigration(queryInterface, '20250507081402-create-users.js');
   },
 
   down: async (queryInterface, Sequelize) => {

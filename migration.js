@@ -26,6 +26,11 @@ function getUsername() {
 
 (async () => {
   try {
+    await sequelize.query(`
+      CREATE TABLE IF NOT EXISTS sequelizeMeta (
+        name VARCHAR(255) NOT NULL PRIMARY KEY
+      );
+    `);
     // Step 1: Get already-applied migrations
     const [beforeMigrations] = await sequelize.query(`SELECT name FROM sequelizeMeta`);
     const alreadyRan = new Set(beforeMigrations.map(m => m.name));
